@@ -36,9 +36,9 @@ export function Login() {
           className="w-36 h-36 mb-4 object-cover rounded-md"
         />
         <h2 className="text-3xl font-bold text-center text-amber-900 font-serif">
-          Wawona Dome
+          Wassociates
         </h2>
-        <p className="text-amber-700 text-sm mt-1">Yosemite Family Cabin</p>
+        <p className="text-amber-700 text-sm mt-1">Yosemite National Park</p>
       </div>
       
       {error && (

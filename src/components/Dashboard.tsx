@@ -62,7 +62,7 @@ export function Dashboard() {
   return (
     <div className="max-w-6xl mx-auto p-8 pt-6">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 bg-amber-800 text-amber-50 p-4 rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold font-serif mb-4 md:mb-0">Wawona Dome Family Cabin</h1>
+        <h1 className="text-3xl font-bold font-serif mb-4 md:mb-0">Wassociates</h1>
         <div className="flex items-center">
           <span className="mr-4">
             {profile?.displayName || currentUser.email}
