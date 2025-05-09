@@ -16,7 +16,6 @@ FIREBASE_PROJECT_ID=your-project-id
 FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com
 FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
 FIREBASE_APP_ID=your-app-id
-FIREBASE_MEASUREMENT_ID=your-measurement-id
 ```
 
 4. Set up your Firebase project:
@@ -87,4 +86,3 @@ To set up automated deployment:
    - `FIREBASE_STORAGE_BUCKET`
    - `FIREBASE_MESSAGING_SENDER_ID`
    - `FIREBASE_APP_ID`
-   - `FIREBASE_MEASUREMENT_ID`
