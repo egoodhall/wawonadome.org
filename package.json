@@ -2,13 +2,17 @@
   "name": "bun-react-template",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://egoodhall.github.io/wawonadome.org",
   "type": "module",
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "scripts": {
     "dev": "bun --hot src/index.tsx",
     "start": "NODE_ENV=production bun src/index.tsx",
-    "build": "bun run build.ts"
+    "build": "bun run build.ts",
+    "predeploy": "bun run build",
+    "deploy": "gh-pages -d dist",
+    "deploy:github": "bun run deploy.ts"
   },
   "dependencies": {
     "bun-plugin-tailwind": "^0.0.14",
@@ -19,8 +23,9 @@
     "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
+    "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "gh-pages": "^6.1.1"
   }
 }

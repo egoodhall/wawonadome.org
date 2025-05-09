@@ -53,3 +53,38 @@ bun run build
 - `src/contexts/`: Context providers
 - `src/firebase/`: Firebase configuration
 - `src/services/`: Service functions for data fetching
+
+## Deployment
+
+This project is configured for deployment to GitHub Pages.
+
+### Manual Deployment
+
+You can manually deploy the app to GitHub Pages with:
+
+```bash
+bun run deploy:github
+```
+
+This script will:
+1. Build the project
+2. Create a `.nojekyll` file to bypass Jekyll processing
+3. Deploy the `dist` directory to the `gh-pages` branch
+
+### Automated Deployment
+
+This repository includes a GitHub Actions workflow that automatically deploys the app to GitHub Pages whenever changes are pushed to the main branch.
+
+To set up automated deployment:
+
+1. Go to your GitHub repository settings
+2. Navigate to "Pages"
+3. Set the source to "GitHub Actions"
+4. Add the following secrets to your repository settings (Settings > Secrets and variables > Actions):
+   - `FIREBASE_API_KEY`
+   - `FIREBASE_AUTH_DOMAIN`
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_STORAGE_BUCKET`
+   - `FIREBASE_MESSAGING_SENDER_ID`
+   - `FIREBASE_APP_ID`
+   - `FIREBASE_MEASUREMENT_ID`

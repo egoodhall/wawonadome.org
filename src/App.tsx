@@ -1,13 +1,14 @@
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { Login } from './components/Login';
 import { Dashboard } from './components/Dashboard';
 import { PrivateRoute } from './components/PrivateRoute';
 
 export function App() {
+  // Using HashRouter instead of BrowserRouter for GitHub Pages compatibility
   return (
-    <Router>
+    <HashRouter>
       <AuthProvider>
         <div className="min-h-screen bg-amber-50">
           <Routes>
@@ -24,7 +25,7 @@ export function App() {
           </Routes>
         </div>
       </AuthProvider>
-    </Router>
+    </HashRouter>
   );
 }
 
