@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import halfDomeImage from '../assets/half-dome.png';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -28,9 +29,17 @@ export function Login() {
 
   return (
     <div className="max-w-md mx-auto mt-16 p-8 bg-amber-100 rounded-lg shadow-md border-2 border-amber-300">
-      <h2 className="text-3xl font-bold mb-6 text-center text-amber-900 font-serif">
-        Wassociates
-      </h2>
+      <div className="flex flex-col items-center mb-6">
+        <img 
+          src={halfDomeImage} 
+          alt="Half Dome Yosemite" 
+          className="w-36 h-36 mb-4 object-cover rounded-md"
+        />
+        <h2 className="text-3xl font-bold text-center text-amber-900 font-serif">
+          Wawona Dome
+        </h2>
+        <p className="text-amber-700 text-sm mt-1">Yosemite Family Cabin</p>
+      </div>
       
       {error && (
         <div className="mb-4 p-3 bg-red-100 text-red-800 rounded-md border border-red-300">

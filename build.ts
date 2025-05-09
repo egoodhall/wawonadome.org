@@ -2,7 +2,7 @@
 import { build, type BuildConfig } from "bun";
 import plugin from "bun-plugin-tailwind";
 import { existsSync } from "fs";
-import { rm } from "fs/promises";
+import { rm, cp, mkdir } from "fs/promises";
 import path from "path";
 
 // Print help text if requested
@@ -132,6 +132,31 @@ if (existsSync(outdir)) {
   await rm(outdir, { recursive: true, force: true });
 }
 
+// Create assets directory in output
+const assetsDir = path.join(outdir, "assets");
+await mkdir(assetsDir, { recursive: true });
+
+// Copy SVG files to assets
+console.log("📂 Copying asset files...");
+
+// Copy PNG files
+const pngFiles = [...new Bun.Glob("**/*.png").scanSync("src")];
+for (const pngFile of pngFiles) {
+  const sourcePath = path.resolve("src", pngFile);
+  const targetPath = path.join(assetsDir, path.basename(pngFile));
+  await cp(sourcePath, targetPath);
+  console.log(`📄 Copied ${pngFile} to ${path.relative(process.cwd(), targetPath)}`);
+}
+
+// Copy SVG files
+const svgFiles = [...new Bun.Glob("**/*.svg").scanSync("src")];
+for (const svgFile of svgFiles) {
+  const sourcePath = path.resolve("src", svgFile);
+  const targetPath = path.join(assetsDir, path.basename(svgFile));
+  await cp(sourcePath, targetPath);
+  console.log(`📄 Copied ${svgFile} to ${path.relative(process.cwd(), targetPath)}`);
+}
+
 const start = performance.now();
 
 // Scan for all HTML files in the project
@@ -140,11 +165,35 @@ const entrypoints = [...new Bun.Glob("**.html").scanSync("src")]
   .filter(dir => !dir.includes("node_modules"));
 console.log(`📄 Found ${entrypoints.length} HTML ${entrypoints.length === 1 ? "file" : "files"} to process\n`);
 
+// Create a plugin for asset files
+const assetPlugin = {
+  name: "asset-loader",
+  setup(build) {
+    // Handle SVG files
+    build.onLoad({ filter: /\.svg$/ }, async (args) => {
+      const filename = path.basename(args.path);
+      return {
+        exports: { default: `./assets/${filename}` },
+        loader: "object",
+      };
+    });
+    
+    // Handle PNG files
+    build.onLoad({ filter: /\.png$/ }, async (args) => {
+      const filename = path.basename(args.path);
+      return {
+        exports: { default: `./assets/${filename}` },
+        loader: "object",
+      };
+    });
+  },
+};
+
 // Build all the HTML files
 const result = await build({
   entrypoints,
   outdir,
-  plugins: [plugin],
+  plugins: [plugin, assetPlugin],
   minify: true,
   target: "browser",
   sourcemap: "linked",
