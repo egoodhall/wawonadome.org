@@ -1,0 +1,21 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="topo" patternUnits="userSpaceOnUse" width="400" height="400" patternTransform="rotate(0)">
+      <!-- Topographical contour lines -->
+      <path d="M50,50 Q100,20 150,50 T250,50 T350,50" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      <path d="M50,100 Q100,70 150,100 T250,100 T350,100" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      <path d="M50,150 Q100,120 150,150 T250,150 T350,150" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      <path d="M50,200 Q100,170 150,200 T250,200 T350,200" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      <path d="M50,250 Q100,220 150,250 T250,250 T350,250" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      <path d="M50,300 Q100,270 150,300 T250,300 T350,300" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      <path d="M50,350 Q100,320 150,350 T250,350 T350,350" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.15"/>
+      
+      <!-- Mountain features -->
+      <circle cx="200" cy="175" r="3" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.2"/>
+      <path d="M180,175 Q200,150 220,175" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.2"/>
+      <path d="M170,175 Q200,130 230,175" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.2"/>
+      <path d="M160,175 Q200,110 240,175" fill="none" stroke="#92400E" stroke-width="0.8" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#topo)"/>
+</svg> 
