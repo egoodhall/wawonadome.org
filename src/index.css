@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    @apply text-amber-900 bg-amber-50 font-sans;
+  }
+
+  body {
+    @apply min-w-[320px] min-h-screen relative m-0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+  }
+}
+
+/* Custom styling for inputs and buttons */
+input, select, textarea {
+  @apply bg-amber-50 border-amber-400;
+}
+
+button {
+  @apply transition-all duration-200;
+}
