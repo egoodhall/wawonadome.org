@@ -11,7 +11,7 @@
     "start": "NODE_ENV=production bun src/index.tsx",
     "build": "bun run build.ts",
     "predeploy": "bun run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --nojekyll",
     "deploy:github": "bun run deploy.ts"
   },
   "dependencies": {
